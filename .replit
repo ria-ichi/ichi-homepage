@@ -2,7 +2,6 @@
 channel = "stable-24_05"
 
 [workflows]
-runButton = "Run server"
 
 [[workflows.workflow]]
 name = "Run server"
@@ -11,4 +10,6 @@ mode = "sequential"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python server.py"
+args = "npx serve ."
+
+run = "npx serve ."
