@@ -1,36 +1,51 @@
-import os
-import http.server
-import socketserver
 
-# Create directories
-os.makedirs("assets/images", exist_ok=True)
-
-# Placeholder HTML file (update with your actual content)
-html_content = """<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-<title>My Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Now Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f5efe6;
+            font-family: Arial, sans-serif;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .logo {
+            max-width: 200px;
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
 </head>
 <body>
-  <img src="assets/images/cplus_logo.png" alt="C++ Logo">
-  <h1>Welcome to my website!</h1>
-  <img src="assets/images/top-image.png" alt="Top Image">
-  <img src="assets/images/fromnow_1.png" alt="Image 1">
-  <img src="assets/images/laguna-garden.png" alt="Image 2">
-  <img src="assets/images/higasyuzou.png" alt="Image 3">
-  <img src="assets/images/ikedasyokuhin.png" alt="Image 4">
-
-
+    <img src="assets/images/顧客PLUS_for_LINE_logo.png" alt="顧客PLUS for LINE" class="logo">
+    <div class="gallery">
+        <img src="assets/images/fromnow_1.png" alt="From Now 1">
+        <img src="assets/images/fromnow_2.png" alt="From Now 2">
+        <img src="assets/images/fromnow_3.png" alt="From Now 3">
+        <img src="assets/images/frownow_4.png" alt="From Now 4">
+        <img src="assets/images/frownow_5.png" alt="From Now 5">
+        <img src="assets/images/frownow_6.png" alt="From Now 6">
+        <img src="assets/images/frownow_7.png" alt="From Now 7">
+        <img src="assets/images/frownow_8.png" alt="From Now 8">
+        <img src="assets/images/frownow_9.png" alt="From Now 9">
+        <img src="assets/images/frownow_10.png" alt="From Now 10">
+        <img src="assets/images/frownow_11.png" alt="From Now 11">
+        <img src="assets/images/frownow_12.png" alt="From Now 12">
+    </div>
 </body>
-</html>"""
-
-with open("index.html", "w") as f:
-    f.write(html_content)
-
-
-# Simple HTTP server
-PORT = 8000
-Handler = http.server.SimpleHTTPRequestHandler
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print("serving at port", PORT)
-    httpd.serve_forever()
+</html>
