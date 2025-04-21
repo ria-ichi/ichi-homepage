@@ -1,0 +1,36 @@
+import os
+import http.server
+import socketserver
+
+# Create directories
+os.makedirs("assets/images", exist_ok=True)
+
+# Placeholder HTML file (update with your actual content)
+html_content = """<!DOCTYPE html>
+<html>
+<head>
+<title>My Website</title>
+</head>
+<body>
+  <img src="assets/images/cplus_logo.png" alt="C++ Logo">
+  <h1>Welcome to my website!</h1>
+  <img src="assets/images/top-image.png" alt="Top Image">
+  <img src="assets/images/fromnow_1.png" alt="Image 1">
+  <img src="assets/images/laguna-garden.png" alt="Image 2">
+  <img src="assets/images/higasyuzou.png" alt="Image 3">
+  <img src="assets/images/ikedasyokuhin.png" alt="Image 4">
+
+
+</body>
+</html>"""
+
+with open("index.html", "w") as f:
+    f.write(html_content)
+
+
+# Simple HTTP server
+PORT = 8000
+Handler = http.server.SimpleHTTPRequestHandler
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print("serving at port", PORT)
+    httpd.serve_forever()
